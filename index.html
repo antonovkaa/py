@@ -1,0 +1,54 @@
+<html>
+  <head>
+      <title>Моє меню </title>
+      <meta charset= "utf-8">
+      <link rel="stylesheet" href="12.css">
+    </head>
+    
+          <body>
+
+            <form id="myForm">
+                <fieldset>
+                  <legend>Інформація про вас</legend>
+                  
+                  <label>First name</label><br>
+                  <input type="text" name="first_name" id="first_name" placeholder="Vasya">     
+                  
+                  <p>
+                    <input type="button" value="Відправити" onclick="submitForm()">
+                  </p>
+                </fieldset>
+              </form>
+            
+              <script>
+                function submitForm() {
+                  var firstName = document.getElementById('first_name').value;
+            
+                  // Ваш formsubmit.co endpoint
+                  var formSubmitEndpoint = 'https://formsubmit.co/ajax/ekaterinaantonenko19@gmail.com'; // Замініть ваш емейл
+            
+                  // Створення об'єкта FormData зі зібраними даними
+                  var formData = new FormData();
+                  formData.append('first_name', firstName);
+            
+                  // Відправка даних на formsubmit.co за допомогою AJAX
+                  var xhr = new XMLHttpRequest();
+                  xhr.open('POST', formSubmitEndpoint, true);
+                  xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                      // Ваш код, який виконується після відправлення форми
+                      alert('Дякуємо за відправку форми!');
+                    }
+                  };
+            
+                  // Відправка даних форми
+                  xhr.send(formData);
+                }
+              </script>
+            
+            </body>
+            </html>
+            </body>
+            </html>
+
+  <!--<script src="1212.js"></script>-->
